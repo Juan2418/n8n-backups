@@ -1,0 +1,331 @@
+{
+  "active": true,
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "ClickUp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ClickUp": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "ClickUp1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Slack": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "ClickUp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ClickUp Trigger": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "ClickUp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ClickUp1": {
+      "main": [
+        [
+          {
+            "node": "Telegram1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Slack1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-05T23:29:28.269Z",
+  "id": "c8gD8YG3yP9RvCRC",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "ACK New Task",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "callback_query"
+        ],
+        "additionalFields": {}
+      },
+      "id": "9a220fd1-8f8c-4eaa-b6be-ceeb0daf9376",
+      "name": "Telegram Trigger",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        620,
+        360
+      ],
+      "webhookId": "6f33222a-f59d-4530-b61a-41a492395e94",
+      "credentials": {
+        "telegramApi": {
+          "id": "pPr58JzaG3sZxvEr",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "team": "3015277",
+        "space": "90170925859",
+        "folder": "90171812499",
+        "list": "901703206163",
+        "filters": {}
+      },
+      "id": "678b60fb-542f-46d2-ae16-8122cf6cfa4e",
+      "name": "ClickUp",
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        360
+      ],
+      "credentials": {
+        "clickUpApi": {
+          "id": "96BZXwSFRnvNprNC",
+          "name": "ClickUp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "items.sort((a, b) => new Date(b.json.created_time) - new Date(a.json.created_time));\nreturn [items[0]]; // Return only the first item, which is the most recent task\n"
+      },
+      "id": "fa264ca0-82e4-409d-b879-5e0985946680",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1440,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "id": "={{ $json.id }}",
+        "updateFields": {
+          "addAssignees": "3183451"
+        }
+      },
+      "id": "6b683403-5e07-4220-bbd7-754e8738bdb3",
+      "name": "ClickUp1",
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "position": [
+        1660,
+        360
+      ],
+      "credentials": {
+        "clickUpApi": {
+          "id": "96BZXwSFRnvNprNC",
+          "name": "ClickUp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "user",
+        "user": {
+          "__rl": true,
+          "value": "U01U1MMKRDZ",
+          "mode": "id"
+        },
+        "messageType": "block",
+        "blocksUi": "={\n\t\"blocks\": [\n\t\t{\n\t\t\t\"type\": \"section\",\n\t\t\t\"text\": {\n\t\t\t\t\"type\": \"mrkdwn\",\n\t\t\t\t\"text\": \"*New Clickup Incident Added ![{{ $json.task_id }}](https://app.clickup.com/t/{{ $json.task_id }})*\"\n\t\t\t}\n\t\t},\n\t\t{\n\t\t\t\"type\": \"divider\"\n\t\t},\n\t\t{\n\t\t\t\"type\": \"section\",\n\t\t\t\"text\": {\n\t\t\t\t\"type\": \"mrkdwn\",\n\t\t\t\t\"text\": \"*Available actions*\"\n\t\t\t}\n\t\t},\n\t\t{\n\t\t\t\"type\": \"section\",\n\t\t\t\"text\": {\n\t\t\t\t\"type\": \"mrkdwn\",\n\t\t\t\t\"text\": \"*Acknowledge alert* \\n\"\n\t\t\t},\n\t\t\t\"accessory\": {\n\t\t\t\t\"type\": \"button\",\n\t\t\t\t\"text\": {\n\t\t\t\t\t\"type\": \"plain_text\",\n\t\t\t\t\t\"emoji\": true,\n\t\t\t\t\t\"text\": \"ACK\"\n\t\t\t\t},\n\t\t\t\t\"url\": \"{{$execution.resumeUrl}}\"\n\t\t\t}\n\t\t},\n\t\t{\n\t\t\t\"type\": \"section\",\n\t\t\t\"text\": {\n\t\t\t\t\"type\": \"mrkdwn\",\n\t\t\t\t\"text\": \"~\"\n\t\t\t},\n\t\t\t\"accessory\": {\n\t\t\t\t\"type\": \"button\",\n\t\t\t\t\"text\": {\n\t\t\t\t\t\"type\": \"plain_text\",\n\t\t\t\t\t\"emoji\": true,\n\t\t\t\t\t\"text\": \"Choose\"\n\t\t\t\t},\n\t\t\t\t\"url\": \"{{$execution.resumeUrl}}\"\n\t\t\t}\n\t\t}\n\t]\n}",
+        "otherOptions": {
+          "includeLinkToWorkflow": true
+        }
+      },
+      "id": "036a2e9d-2916-4fb2-b579-d9e32e7522a9",
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [
+        820,
+        600
+      ],
+      "credentials": {
+        "slackApi": {
+          "id": "WfEwIypujMmM8UqX",
+          "name": "Slack account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resume": "webhook",
+        "options": {}
+      },
+      "id": "dbc633fa-fec5-4f09-bfa2-64f08bb8a952",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1040,
+        600
+      ],
+      "webhookId": "a3cecb79-7831-4edc-8984-9a7120a9f835"
+    },
+    {
+      "parameters": {
+        "team": "3015277",
+        "events": [
+          "taskCreated"
+        ],
+        "filters": {
+          "listId": "901703206163"
+        }
+      },
+      "id": "9f896bf8-00e7-4e57-9bb2-cca8f77399ce",
+      "name": "ClickUp Trigger",
+      "type": "n8n-nodes-base.clickUpTrigger",
+      "typeVersion": 1,
+      "position": [
+        620,
+        600
+      ],
+      "webhookId": "c2bd3039-643b-4524-be72-28dba46ce5a8",
+      "credentials": {
+        "clickUpApi": {
+          "id": "96BZXwSFRnvNprNC",
+          "name": "ClickUp account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "f489e5d1-eca5-492a-83ee-83b23826f8f6",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        620,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "chatId": "@jptelegramtesting",
+        "text": "=Acknowledged task [{{ $json.id }}]",
+        "additionalFields": {}
+      },
+      "id": "65bb1c5c-3f2a-48e7-97f5-242ae9124675",
+      "name": "Telegram1",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1880,
+        360
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "pPr58JzaG3sZxvEr",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "user",
+        "user": {
+          "__rl": true,
+          "value": "U01U1MMKRDZ",
+          "mode": "id"
+        },
+        "text": "=Acknowledged task [{{ $json.id }}]",
+        "otherOptions": {}
+      },
+      "id": "8ddc1014-faf1-40c7-948d-1af763270451",
+      "name": "Slack1",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [
+        1880,
+        200
+      ],
+      "credentials": {
+        "slackApi": {
+          "id": "WfEwIypujMmM8UqX",
+          "name": "Slack account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:ClickUp Trigger": {
+      "webhookId": "e811c8d5-707c-42ae-b583-75bd51f814c2",
+      "secret": "F5FZ3MKIWJNSVC0MO60202UIK477NMTVMAJGFUJIRR32G7RT7B8YBYQGMDFEXK1O"
+    }
+  },
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2024-10-06T04:43:24.000Z",
+  "versionId": "5c2c121e-6e52-43db-92d1-263c8264599d"
+}
