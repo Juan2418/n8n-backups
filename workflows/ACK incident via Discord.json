@@ -1,0 +1,214 @@
+{
+  "active": false,
+  "connections": {
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Respond to Webhook1": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Discord1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-06T02:38:56.319Z",
+  "id": "xSJ5waC6fyOsVlp3",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "ACK incident via Discord",
+  "nodes": [
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"type\": 1\n}",
+        "options": {}
+      },
+      "id": "6f0fdd05-fa79-4abb-9300-1c0c31ec81fe",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1280,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "51534a82-e49d-4848-b565-6d8b3d0eb43c",
+              "leftValue": "={{ $json.body.type }}",
+              "rightValue": "1",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "id": "9f6488b5-fb88-4d46-8b82-cd19611b8774",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1000,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"type\": 4,\n  \"data\": {\n    \"content\": \"Last task has been aknowleded :white_check_mark:\"\n  }\n  \n}",
+        "options": {}
+      },
+      "id": "14f38bab-d69f-4714-a258-72577bf47a20",
+      "name": "Respond to Webhook1",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1280,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "804b8825-a077-4824-9dcc-4d23b9dd41bd",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "d4605908-4f66-4023-a96e-93d5619c8249",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        780,
+        700
+      ],
+      "webhookId": "804b8825-a077-4824-9dcc-4d23b9dd41bd"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "message",
+        "guildId": {
+          "__rl": true,
+          "value": "1292302516129632276",
+          "mode": "list",
+          "cachedResultName": "Testing",
+          "cachedResultUrl": "https://discord.com/channels/1292302516129632276"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "1292302516662566924",
+          "mode": "list",
+          "cachedResultName": "general",
+          "cachedResultUrl": "https://discord.com/channels/1292302516129632276/1292302516662566924"
+        },
+        "content": "ACK on ClickUp workflow failed",
+        "options": {}
+      },
+      "id": "05fd96e9-fb18-47f3-976d-85eb699551c2",
+      "name": "Discord1",
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        1780,
+        900
+      ],
+      "credentials": {
+        "discordOAuth2Api": {
+          "id": "Dr929KM4AuWMfoMh",
+          "name": "Discord account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "c8gD8YG3yP9RvCRC",
+          "mode": "list",
+          "cachedResultName": "ACK New Task"
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "69617e01-2082-4bda-8955-65f5c1b39338",
+      "name": "Execute Workflow",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        1540,
+        720
+      ],
+      "onError": "continueErrorOutput"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-10-06T04:27:41.000Z",
+  "versionId": "b3d7c977-2c11-4714-bd9f-7ccfd5c4b7c7"
+}
