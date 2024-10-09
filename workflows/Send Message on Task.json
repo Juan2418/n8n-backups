@@ -1,62 +1,25 @@
 {
   "active": true,
   "connections": {
-    "When clicking ‘Test workflow’": {
-      "main": [
-        [
-          {
-            "node": "Telegram",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Discord",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "ClickUp Trigger": {
       "main": [
         [
           {
-            "node": "Discord",
-            "type": "main",
-            "index": 0
-          },
-          {
             "node": "Telegram",
             "type": "main",
             "index": 0
           }
         ]
       ]
-    },
-    "Discord": {
-      "main": [
-        []
-      ]
     }
   },
-  "createdAt": "2024-10-05T22:04:36.477Z",
-  "id": "2EIRhSJN7PsADtzJ",
+  "createdAt": "2024-10-08T23:45:57.573Z",
+  "id": "5BcvnGhppv9QAaZP",
   "meta": {
     "templateCredsSetupCompleted": true
   },
   "name": "Send Message on Task",
   "nodes": [
-    {
-      "parameters": {},
-      "id": "204a6edb-733f-4f8a-a1f8-60ceec157ad6",
-      "name": "When clicking ‘Test workflow’",
-      "type": "n8n-nodes-base.manualTrigger",
-      "typeVersion": 1,
-      "position": [
-        840,
-        400
-      ]
-    },
     {
       "parameters": {
         "chatId": "@jptelegramtesting",
@@ -82,17 +45,17 @@
           "parse_mode": "MarkdownV2"
         }
       },
-      "id": "bc90b226-f2cb-4dc3-8697-bbb724f75a63",
+      "id": "548e357d-5679-46c5-beff-b955e6bacea6",
       "name": "Telegram",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        1280,
-        400
+        1140,
+        340
       ],
       "credentials": {
         "telegramApi": {
-          "id": "pPr58JzaG3sZxvEr",
+          "id": "h5hNZAML1SIcpezN",
           "name": "Telegram account"
         }
       }
@@ -109,18 +72,18 @@
           "spaceId": "90170925859"
         }
       },
-      "id": "8528d11c-ed1a-4b3c-8ff9-f7788556571c",
+      "id": "faab807b-f655-4bd9-ac52-8f223e2c10d9",
       "name": "ClickUp Trigger",
       "type": "n8n-nodes-base.clickUpTrigger",
       "typeVersion": 1,
       "position": [
-        840,
+        660,
         240
       ],
       "webhookId": "f64a0ae5-ab4c-46c0-912c-375189d5efde",
       "credentials": {
         "clickUpApi": {
-          "id": "96BZXwSFRnvNprNC",
+          "id": "JBEGLZWeRRUl0uCC",
           "name": "ClickUp account"
         }
       }
@@ -131,36 +94,28 @@
         "content": "=New incident reported: [{{ $json.task_id }}]",
         "options": {}
       },
-      "id": "26f64d4c-947c-431c-97f6-0a4b7a5c2797",
+      "id": "b0b952fb-97dc-43ff-9e0b-70c2d032f843",
       "name": "Discord",
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        1280,
-        240
-      ],
-      "credentials": {
-        "discordWebhookApi": {
-          "id": "cbnKWBBFkvLSNfiF",
-          "name": "Discord Webhook account"
-        }
-      }
+        1140,
+        180
+      ]
     }
   ],
   "pinData": {},
   "settings": {
-    "executionOrder": "v1",
-    "saveManualExecutions": true,
-    "callerPolicy": "workflowsFromSameOwner"
+    "executionOrder": "v1"
   },
   "staticData": {
     "node:ClickUp Trigger": {
-      "webhookId": "9f7bb44a-0fc2-4515-9ba2-ba56f9971b4a",
-      "secret": "MTETJ5U5FJMV0OBE60V0ESP29PBEFPY3LK4M7X4UG7FKW8X14H7AVJV54898XY8X"
+      "webhookId": "13b0e625-e59c-4d21-a7a9-37f139dadc0e",
+      "secret": "AS1VI5RUQ68GA7LDFGLF7H10EMV5GMU7EW39UPDT2RJWZKISHN8T3IKI0VAR08U1"
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-10-06T04:33:53.000Z",
-  "versionId": "8c18c112-3b7c-4720-b9d9-ee5e3db40644"
+  "updatedAt": "2024-10-08T23:54:12.000Z",
+  "versionId": "c89db44c-815a-44d0-aa99-f85351c84b7c"
 }
