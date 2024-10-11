@@ -95,8 +95,8 @@
       ]
     }
   },
-  "createdAt": "2024-10-08T23:49:25.412Z",
-  "id": "CZv0J2MWD09JJ8NC",
+  "createdAt": "2024-10-11T02:32:10.193Z",
+  "id": "gtnWhdKDFfmGq0g8",
   "meta": {
     "templateCredsSetupCompleted": true
   },
@@ -109,18 +109,18 @@
         ],
         "additionalFields": {}
       },
-      "id": "bdcbccb7-e3ad-4c13-b862-136313097cd1",
+      "id": "ae6adf98-3c14-4d95-b59d-f563d9fa68fa",
       "name": "Telegram Trigger",
       "type": "n8n-nodes-base.telegramTrigger",
       "typeVersion": 1.1,
       "position": [
-        660,
-        480
+        460,
+        680
       ],
       "webhookId": "6f33222a-f59d-4530-b61a-41a492395e94",
       "credentials": {
         "telegramApi": {
-          "id": "h5hNZAML1SIcpezN",
+          "id": "yxrXM30i9JxeXnGf",
           "name": "Telegram account"
         }
       }
@@ -134,17 +134,17 @@
         "list": "901703206163",
         "filters": {}
       },
-      "id": "fc8b203c-8540-4e25-ad08-525262565b6c",
+      "id": "b3027b70-1ced-486a-8d25-6f1245aefeb9",
       "name": "ClickUp",
       "type": "n8n-nodes-base.clickUp",
       "typeVersion": 1,
       "position": [
-        1260,
-        480
+        1060,
+        680
       ],
       "credentials": {
         "clickUpApi": {
-          "id": "JBEGLZWeRRUl0uCC",
+          "id": "lwFd2uhzsjT9hByN",
           "name": "ClickUp account"
         }
       }
@@ -153,13 +153,13 @@
       "parameters": {
         "jsCode": "items.sort((a, b) => new Date(b.json.created_time) - new Date(a.json.created_time));\nreturn [items[0]]; // Return only the first item, which is the most recent task\n"
       },
-      "id": "cdce8d6a-a849-43d9-a475-f834ec975188",
+      "id": "c7320703-daff-41f3-819d-2aa59f7ed3d6",
       "name": "Code",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1480,
-        480
+        1280,
+        680
       ]
     },
     {
@@ -170,17 +170,17 @@
           "addAssignees": "3183451"
         }
       },
-      "id": "9f4895eb-77ac-4575-b8be-41d422381806",
+      "id": "714638be-c8c0-4f29-bf70-04378b7a2674",
       "name": "ClickUp1",
       "type": "n8n-nodes-base.clickUp",
       "typeVersion": 1,
       "position": [
-        1700,
-        480
+        1500,
+        680
       ],
       "credentials": {
         "clickUpApi": {
-          "id": "JBEGLZWeRRUl0uCC",
+          "id": "lwFd2uhzsjT9hByN",
           "name": "ClickUp account"
         }
       }
@@ -199,17 +199,17 @@
           "includeLinkToWorkflow": true
         }
       },
-      "id": "7716a629-9ae5-4b19-9527-4a2572fcf8bd",
+      "id": "88309778-8dec-44b1-8c1d-4e96d34a55f9",
       "name": "Slack",
       "type": "n8n-nodes-base.slack",
       "typeVersion": 2.2,
       "position": [
-        860,
-        720
+        660,
+        920
       ],
       "credentials": {
         "slackApi": {
-          "id": "mTBRwqEFMJQ7getj",
+          "id": "kfxOr1rysZBrmnSb",
           "name": "Slack account"
         }
       }
@@ -219,13 +219,13 @@
         "resume": "webhook",
         "options": {}
       },
-      "id": "84c9da60-cd82-4be9-abd3-1a45121ee573",
+      "id": "d94c9af4-178c-4ca3-9bd4-b96ccb0c3028",
       "name": "Wait",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        1080,
-        720
+        880,
+        920
       ],
       "webhookId": "a3cecb79-7831-4edc-8984-9a7120a9f835"
     },
@@ -239,31 +239,31 @@
           "listId": "901703206163"
         }
       },
-      "id": "113a1136-1664-491c-8619-2f2915162ab9",
+      "id": "e8620295-cd91-428e-a33a-876dcd0af69b",
       "name": "ClickUp Trigger",
       "type": "n8n-nodes-base.clickUpTrigger",
       "typeVersion": 1,
       "position": [
-        660,
-        720
+        460,
+        920
       ],
       "webhookId": "c2bd3039-643b-4524-be72-28dba46ce5a8",
       "credentials": {
         "clickUpApi": {
-          "id": "JBEGLZWeRRUl0uCC",
+          "id": "lwFd2uhzsjT9hByN",
           "name": "ClickUp account"
         }
       }
     },
     {
       "parameters": {},
-      "id": "3de783a0-7ba2-4784-9b37-e498369404a8",
+      "id": "4394cf81-3a3f-420c-b0f8-c3ad0a246181",
       "name": "Execute Workflow Trigger",
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1,
       "position": [
-        660,
-        260
+        460,
+        460
       ]
     },
     {
@@ -272,17 +272,17 @@
         "text": "=Acknowledged task [{{ $json.id }}]",
         "additionalFields": {}
       },
-      "id": "d1059b2b-e47d-49a9-98b1-73beb9b5edf9",
+      "id": "30c549f0-6731-4441-acf3-d076e57e9d24",
       "name": "Telegram1",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        1920,
-        480
+        1720,
+        680
       ],
       "credentials": {
         "telegramApi": {
-          "id": "h5hNZAML1SIcpezN",
+          "id": "yxrXM30i9JxeXnGf",
           "name": "Telegram account"
         }
       }
@@ -298,17 +298,17 @@
         "text": "=Acknowledged task [{{ $json.id }}]",
         "otherOptions": {}
       },
-      "id": "74950107-7f0c-4a73-b7ab-09508a046fc0",
+      "id": "58191de6-9be0-4e1f-8b35-c13d427935a7",
       "name": "Slack1",
       "type": "n8n-nodes-base.slack",
       "typeVersion": 2.2,
       "position": [
-        1920,
-        320
+        1720,
+        520
       ],
       "credentials": {
         "slackApi": {
-          "id": "mTBRwqEFMJQ7getj",
+          "id": "kfxOr1rysZBrmnSb",
           "name": "Slack account"
         }
       }
@@ -320,12 +320,12 @@
   },
   "staticData": {
     "node:ClickUp Trigger": {
-      "webhookId": "33926636-9a76-415f-8336-378bf6a6faac",
-      "secret": "QO7N8QGYSGZBECO0YGZ14K5SNHOM8AIOZWGRHKD6RJI5JFTWE312AF57T1VJLMVA"
+      "webhookId": "2334f448-3dca-4613-83ce-1b89985370ed",
+      "secret": "55PZHLULVOK5ZR48XFJPC74RBR28HSW4QEJU8YQEYRBH2IHHOD3SVETCPL3KM1CD"
     }
   },
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2024-10-08T23:49:56.000Z",
-  "versionId": "7392a0e2-f0d6-4591-9078-7b32c9a9c50f"
+  "updatedAt": "2024-10-11T02:34:51.000Z",
+  "versionId": "435b22fc-90df-45f4-9b53-1642f3ec0eb6"
 }
