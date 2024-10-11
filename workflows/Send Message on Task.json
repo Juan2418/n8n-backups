@@ -13,8 +13,8 @@
       ]
     }
   },
-  "createdAt": "2024-10-08T23:45:57.573Z",
-  "id": "5BcvnGhppv9QAaZP",
+  "createdAt": "2024-10-11T02:35:20.299Z",
+  "id": "f4RHv1hNQ67is7kC",
   "meta": {
     "templateCredsSetupCompleted": true
   },
@@ -45,17 +45,17 @@
           "parse_mode": "MarkdownV2"
         }
       },
-      "id": "548e357d-5679-46c5-beff-b955e6bacea6",
+      "id": "aabeb5f0-1a23-4afe-8acc-ebcc744ae81d",
       "name": "Telegram",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        1140,
-        340
+        1060,
+        480
       ],
       "credentials": {
         "telegramApi": {
-          "id": "h5hNZAML1SIcpezN",
+          "id": "yxrXM30i9JxeXnGf",
           "name": "Telegram account"
         }
       }
@@ -72,18 +72,18 @@
           "spaceId": "90170925859"
         }
       },
-      "id": "faab807b-f655-4bd9-ac52-8f223e2c10d9",
+      "id": "56bb10f4-184e-4bf8-ad1d-9ea98596e9af",
       "name": "ClickUp Trigger",
       "type": "n8n-nodes-base.clickUpTrigger",
       "typeVersion": 1,
       "position": [
-        660,
-        240
+        580,
+        380
       ],
       "webhookId": "f64a0ae5-ab4c-46c0-912c-375189d5efde",
       "credentials": {
         "clickUpApi": {
-          "id": "JBEGLZWeRRUl0uCC",
+          "id": "lwFd2uhzsjT9hByN",
           "name": "ClickUp account"
         }
       }
@@ -94,13 +94,13 @@
         "content": "=New incident reported: [{{ $json.task_id }}]",
         "options": {}
       },
-      "id": "b0b952fb-97dc-43ff-9e0b-70c2d032f843",
+      "id": "fd5d9717-e08a-46c7-b780-c98176ebf34b",
       "name": "Discord",
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        1140,
-        180
+        1060,
+        320
       ]
     }
   ],
@@ -110,12 +110,12 @@
   },
   "staticData": {
     "node:ClickUp Trigger": {
-      "webhookId": "13b0e625-e59c-4d21-a7a9-37f139dadc0e",
-      "secret": "AS1VI5RUQ68GA7LDFGLF7H10EMV5GMU7EW39UPDT2RJWZKISHN8T3IKI0VAR08U1"
+      "webhookId": "5345efcd-f295-433f-bcf3-d7e923b01d1c",
+      "secret": "POXNR70EN9XER9S8PBKA51AF24G7LSQ7VQOE9JNYJYGIH8ANZ6DOHJFRHDP0ZVSY"
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-10-08T23:54:12.000Z",
-  "versionId": "c89db44c-815a-44d0-aa99-f85351c84b7c"
+  "updatedAt": "2024-10-11T02:35:44.000Z",
+  "versionId": "5530ce3a-491d-4548-8948-d63feb43eb20"
 }
