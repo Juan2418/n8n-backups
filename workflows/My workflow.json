@@ -1,69 +1,36 @@
 {
   "active": false,
-  "connections": {
-    "When clicking ‘Test workflow’": {
-      "main": [
-        [
-          {
-            "node": "Discord",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    }
-  },
-  "createdAt": "2024-10-06T01:50:59.151Z",
-  "id": "wOTBgvRqSVWHXi6J",
+  "connections": {},
+  "createdAt": "2024-10-11T13:03:18.230Z",
+  "id": "yyZjll4QoPsuBCYS",
   "meta": {
     "templateCredsSetupCompleted": true
   },
   "name": "My workflow",
   "nodes": [
     {
-      "parameters": {},
-      "id": "bc415dff-ff24-4385-8d48-6bd6520869a2",
-      "name": "When clicking ‘Test workflow’",
-      "type": "n8n-nodes-base.manualTrigger",
+      "parameters": {
+        "team": "3015277",
+        "events": [
+          "taskUpdated"
+        ],
+        "filters": {
+          "listId": "901703206163"
+        }
+      },
+      "id": "fad97e77-33bf-4ca6-8281-09ed090f157b",
+      "name": "ClickUp Trigger",
+      "type": "n8n-nodes-base.clickUpTrigger",
       "typeVersion": 1,
       "position": [
-        840,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "authentication": "oAuth2",
-        "resource": "message",
-        "guildId": {
-          "__rl": true,
-          "value": "1292302516129632276",
-          "mode": "list",
-          "cachedResultName": "Testing",
-          "cachedResultUrl": "https://discord.com/channels/1292302516129632276"
-        },
-        "channelId": {
-          "__rl": true,
-          "value": "1292302516662566924",
-          "mode": "list",
-          "cachedResultName": "general",
-          "cachedResultUrl": "https://discord.com/channels/1292302516129632276/1292302516662566924"
-        },
-        "content": "{\n    \"content\": \"This is a message with components\",\n    \"components\": [\n        {\n            \"type\": 1,\n            \"components\": [\n                {\n                    \"type\": 2,\n                    \"label\": \"Click me!\",\n                    \"style\": 1,\n                    \"custom_id\": \"click_one\"\n                }\n            ]\n\n        }\n    ]\n}\n",
-        "options": {}
-      },
-      "id": "b7305d84-50bb-46ea-a9ce-810fc3ab9a1c",
-      "name": "Discord",
-      "type": "n8n-nodes-base.discord",
-      "typeVersion": 2,
-      "position": [
-        1060,
-        400
+        640,
+        340
       ],
+      "webhookId": "e904aaa4-b786-4b4a-b75f-65f13050070b",
       "credentials": {
-        "discordOAuth2Api": {
-          "id": "Dr929KM4AuWMfoMh",
-          "name": "Discord account"
+        "clickUpApi": {
+          "id": "lwFd2uhzsjT9hByN",
+          "name": "ClickUp account"
         }
       }
     }
@@ -75,6 +42,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-10-06T02:25:47.000Z",
-  "versionId": "e906dbc1-1700-42ba-81a7-f272899f22f9"
+  "updatedAt": "2024-10-11T13:03:18.230Z",
+  "versionId": "b042a6d9-b438-4297-b0fb-0f1c66c1f5b2"
 }
