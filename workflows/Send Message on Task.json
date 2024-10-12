@@ -11,6 +11,17 @@
           }
         ]
       ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-10-11T02:35:20.299Z",
@@ -78,7 +89,7 @@
       "typeVersion": 1,
       "position": [
         580,
-        380
+        520
       ],
       "webhookId": "f64a0ae5-ab4c-46c0-912c-375189d5efde",
       "credentials": {
@@ -102,6 +113,22 @@
         1060,
         320
       ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "50d55f39-cc18-46ea-9f50-5b32c42c36a4",
+        "options": {}
+      },
+      "id": "7e9b175b-9355-4e98-a744-859f65f9d6c3",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        580,
+        340
+      ],
+      "webhookId": "50d55f39-cc18-46ea-9f50-5b32c42c36a4"
     }
   ],
   "pinData": {},
@@ -110,12 +137,12 @@
   },
   "staticData": {
     "node:ClickUp Trigger": {
-      "webhookId": "5345efcd-f295-433f-bcf3-d7e923b01d1c",
-      "secret": "POXNR70EN9XER9S8PBKA51AF24G7LSQ7VQOE9JNYJYGIH8ANZ6DOHJFRHDP0ZVSY"
+      "webhookId": "f6e836fc-cef2-4815-8569-969c7f5521ba",
+      "secret": "3W4MA93E74LNA8OFM78RT0Q5EE4FH9P37L8Y1TDRNWXPRZJ450Y0RY08R862N6JP"
     }
   },
   "tags": [],
-  "triggerCount": 1,
-  "updatedAt": "2024-10-11T02:35:44.000Z",
-  "versionId": "5530ce3a-491d-4548-8948-d63feb43eb20"
+  "triggerCount": 2,
+  "updatedAt": "2024-10-12T00:55:27.000Z",
+  "versionId": "e861795d-95dd-4dd4-ae9a-f7c553b3749c"
 }
