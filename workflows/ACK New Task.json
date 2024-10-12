@@ -93,6 +93,17 @@
           }
         ]
       ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "ClickUp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-10-11T02:32:10.193Z",
@@ -312,6 +323,17 @@
           "name": "Slack account"
         }
       }
+    },
+    {
+      "parameters": {},
+      "id": "e7816402-f749-4228-8463-2e8def17402b",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        780,
+        420
+      ]
     }
   ],
   "pinData": {},
@@ -320,12 +342,12 @@
   },
   "staticData": {
     "node:ClickUp Trigger": {
-      "webhookId": "2334f448-3dca-4613-83ce-1b89985370ed",
-      "secret": "55PZHLULVOK5ZR48XFJPC74RBR28HSW4QEJU8YQEYRBH2IHHOD3SVETCPL3KM1CD"
+      "webhookId": "9783de7c-7354-482f-9835-48bf59946ccd",
+      "secret": "UZMA1Z6V5VT1L0440YO7BADG9GFLILCK2AHLKOYASEY61BZ0B70T2EGW7LGEZDDT"
     }
   },
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2024-10-11T02:34:51.000Z",
-  "versionId": "435b22fc-90df-45f4-9b53-1642f3ec0eb6"
+  "updatedAt": "2024-10-11T22:50:13.000Z",
+  "versionId": "4ab5bc24-2de5-4e6c-8fe0-b083aa8f48a5"
 }
