@@ -342,12 +342,12 @@
   },
   "staticData": {
     "node:ClickUp Trigger": {
-      "webhookId": "9783de7c-7354-482f-9835-48bf59946ccd",
-      "secret": "UZMA1Z6V5VT1L0440YO7BADG9GFLILCK2AHLKOYASEY61BZ0B70T2EGW7LGEZDDT"
+      "webhookId": "5bb7097a-96bf-4c5d-a193-88352ff82295",
+      "secret": "5BVOIL7JPF3NW0EOLMZX968OTVBZ7ENB7DOLOZ88Z2H5RDWCDB4G4G5J9DOZU1RP"
     }
   },
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2024-10-11T22:50:13.000Z",
+  "updatedAt": "2024-10-12T18:32:49.000Z",
   "versionId": "4ab5bc24-2de5-4e6c-8fe0-b083aa8f48a5"
 }
