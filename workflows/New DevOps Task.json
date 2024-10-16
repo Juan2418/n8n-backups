@@ -1,0 +1,141 @@
+{
+  "active": true,
+  "connections": {
+    "n8n Form Trigger": {
+      "main": [
+        [
+          {
+            "node": "ClickUp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ClickUp": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-10-11T13:03:18.230Z",
+  "id": "yyZjll4QoPsuBCYS",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "New DevOps Task",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "f20edac6-1079-4353-b868-6bb434dd15ea",
+        "formTitle": "New DevSecOps Ticket",
+        "formDescription": "Complete this form to request assistance ",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Name of the task",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "What is the problem?",
+              "fieldType": "textarea",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "When do you needed fixed?",
+              "fieldType": "date",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Info you consider useful for us to know",
+              "fieldType": "textarea"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "201012a9-4277-4f7b-8829-802777f2c9bd",
+      "name": "n8n Form Trigger",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.1,
+      "position": [
+        640,
+        400
+      ],
+      "webhookId": "f20edac6-1079-4353-b868-6bb434dd15ea"
+    },
+    {
+      "parameters": {
+        "team": "3015277",
+        "space": "90170794567",
+        "folder": "90171278565",
+        "list": "901702548245",
+        "name": "={{ $json['Name of the task'] }}",
+        "additionalFields": {
+          "content": "={{ $json['What is the problem?'] }}\n\n\n### Other details: \n\n{{ $json['Info you consider useful for us to know'] }}",
+          "dueDate": "={{ $json['When do you needed fixed?'] }}",
+          "markdownContent": true,
+          "status": "starting next"
+        }
+      },
+      "id": "f2debefc-654f-4b1a-a896-8701b0275e0f",
+      "name": "ClickUp",
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "position": [
+        860,
+        400
+      ],
+      "credentials": {
+        "clickUpApi": {
+          "id": "lwFd2uhzsjT9hByN",
+          "name": "ClickUp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "user",
+        "user": {
+          "__rl": true,
+          "value": "U01U1MMKRDZ",
+          "mode": "id"
+        },
+        "messageType": "block",
+        "blocksUi": "={\n\t\"blocks\": [\n\t\t{\n\t\t\t\"type\": \"context\",\n\t\t\t\"elements\": [\n\t\t\t\t{\n\t\t\t\t\t\"type\": \"image\",\n\t\t\t\t\t\"image_url\": \"https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg\",\n\t\t\t\t\t\"alt_text\": \"cute cat\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"type\": \"mrkdwn\",\n\t\t\t\t\t\"text\": \"New Task has been added to the DevOps Board\"\n\t\t\t\t}\n\t\t\t]\n\t\t},\n\t\t{\n\t\t\t\"type\": \"section\",\n\t\t\t\"text\": {\n\t\t\t\t\"type\": \"mrkdwn\",\n\t\t\t\t\"text\": \"{{ $json.name }}\"\n\t\t\t},\n\t\t\t\"accessory\": {\n\t\t\t\t\"type\": \"button\",\n\t\t\t\t\"text\": {\n\t\t\t\t\t\"type\": \"plain_text\",\n\t\t\t\t\t\"text\": \"Go to task\",\n\t\t\t\t\t\"emoji\": true\n\t\t\t\t},\n\t\t\t\t\"value\": \"click_me_123\",\n\t\t\t\t\"url\": \"https://app.clickup.com/t/{{ $json.id }}\",\n\t\t\t\t\"action_id\": \"button-action\"\n\t\t\t}\n\t\t}\n\t]\n}",
+        "otherOptions": {
+          "includeLinkToWorkflow": false
+        }
+      },
+      "id": "e5e8acee-63c4-420e-8cb0-bb44e40b3212",
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [
+        1080,
+        400
+      ],
+      "credentials": {
+        "slackApi": {
+          "id": "kfxOr1rysZBrmnSb",
+          "name": "Slack account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2024-10-15T17:44:16.000Z",
+  "versionId": "a8f80727-18a6-433a-9d19-5b5c1de49695"
+}
