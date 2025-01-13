@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Edit Fields": {
       "main": [
@@ -34,18 +34,21 @@
         ]
       ]
     },
-    "Switch": {
+    "Sentry": {
       "main": [
         [
           {
-            "node": "HTTP Request1",
+            "node": "Telegram",
             "type": "main",
             "index": 0
-          }
-        ],
-        [
+          },
           {
-            "node": "HTTP Request",
+            "node": "ClickUp",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Code",
             "type": "main",
             "index": 0
           }
@@ -63,21 +66,25 @@
         ]
       ]
     },
-    "Sentry": {
+    "Switch": {
       "main": [
         [
           {
-            "node": "Telegram",
+            "node": "HTTP Request1",
             "type": "main",
             "index": 0
-          },
+          }
+        ],
+        [
           {
-            "node": "ClickUp",
+            "node": "HTTP Request",
             "type": "main",
             "index": 0
-          },
+          }
+        ],
+        [
           {
-            "node": "Code",
+            "node": "HTTP Request2",
             "type": "main",
             "index": 0
           }
@@ -236,6 +243,68 @@
     },
     {
       "parameters": {
+        "method": "POST",
+        "url": "https://pushcall.me/api/call?api_key=q3FuQLrwZaMU&from=1&to=59892771007",
+        "options": {}
+      },
+      "id": "737cf500-ee16-42a8-ab55-b7f924f1786c",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1680,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "8cd58fe0-adac-4c63-b25b-eed89fcf5ad7",
+        "options": {}
+      },
+      "id": "4695f0de-3706-4058-9595-d496d5e76f97",
+      "name": "Sentry",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        600,
+        540
+      ],
+      "webhookId": "8cd58fe0-adac-4c63-b25b-eed89fcf5ad7"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://pushcall.me/api/call?api_key=q3FuQLrwZaMU&from=1&to=59899165658",
+        "options": {}
+      },
+      "id": "8982bf3d-5fdc-4edc-8ecc-300e8f3ef278",
+      "name": "HTTP Request2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1860,
+        1000
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "2b1f381a-209a-444c-8bfb-15108c4a553f",
+        "options": {}
+      },
+      "id": "bd33ad0b-b203-4825-bbca-6c681358c33b",
+      "name": "Clickup",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        600,
+        1040
+      ],
+      "webhookId": "2b1f381a-209a-444c-8bfb-15108c4a553f"
+    },
+    {
+      "parameters": {
         "rules": {
           "values": [
             {
@@ -249,7 +318,7 @@
                 "conditions": [
                   {
                     "leftValue": "oncall",
-                    "rightValue": "jp",
+                    "rightValue": "uri",
                     "operator": {
                       "type": "string",
                       "operation": "equals"
@@ -280,6 +349,29 @@
                 ],
                 "combinator": "and"
               }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9f1da75e-69ed-4e87-a7b2-7146d48df582",
+                    "leftValue": "oncall",
+                    "rightValue": "andor",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
             }
           ]
         },
@@ -294,53 +386,6 @@
         1480,
         760
       ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://pushcall.me/api/call?api_key=q3FuQLrwZaMU&from=1&to=59892771007",
-        "options": {}
-      },
-      "id": "737cf500-ee16-42a8-ab55-b7f924f1786c",
-      "name": "HTTP Request1",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        1680,
-        600
-      ]
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "2b1f381a-209a-444c-8bfb-15108c4a553f",
-        "options": {}
-      },
-      "id": "bd33ad0b-b203-4825-bbca-6c681358c33b",
-      "name": "Clickup",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        600,
-        1040
-      ],
-      "webhookId": "2b1f381a-209a-444c-8bfb-15108c4a553f"
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "8cd58fe0-adac-4c63-b25b-eed89fcf5ad7",
-        "options": {}
-      },
-      "id": "4695f0de-3706-4058-9595-d496d5e76f97",
-      "name": "Sentry",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        600,
-        540
-      ],
-      "webhookId": "8cd58fe0-adac-4c63-b25b-eed89fcf5ad7"
     }
   ],
   "pinData": {},
@@ -350,6 +395,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2024-11-01T16:47:23.000Z",
-  "versionId": "b286c643-1f46-45ea-bd97-fcbc7182701f"
+  "updatedAt": "2025-01-13T01:07:02.000Z",
+  "versionId": "eef246ba-def4-4512-bac3-d6bf49e65884"
 }
