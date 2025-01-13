@@ -1,22 +1,11 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
-    "n8n Form Trigger": {
+    "Schedule Trigger": {
       "main": [
         [
           {
-            "node": "ClickUp",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "ClickUp": {
-      "main": [
-        [
-          {
-            "node": "Slack",
+            "node": "Fetch cron operations",
             "type": "main",
             "index": 0
           }
@@ -24,118 +13,78 @@
       ]
     }
   },
-  "createdAt": "2024-10-11T13:03:18.230Z",
-  "id": "yyZjll4QoPsuBCYS",
+  "createdAt": "2024-11-05T13:31:43.482Z",
+  "id": "CmkM0bqDzRricJ5n",
   "meta": {
     "templateCredsSetupCompleted": true
   },
   "name": "My workflow",
   "nodes": [
     {
+      "parameters": {},
+      "id": "f7dee539-2a77-487f-b310-598ff8bf8725",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        620,
+        300
+      ],
+      "typeVersion": 1
+    },
+    {
       "parameters": {
-        "path": "f20edac6-1079-4353-b868-6bb434dd15ea",
-        "formTitle": "New DevSecOps Ticket",
-        "formDescription": "Complete this form to request assistance ",
-        "formFields": {
-          "values": [
-            {
-              "fieldLabel": "Name of the task",
-              "requiredField": true
-            },
-            {
-              "fieldLabel": "What is the problem?",
-              "fieldType": "textarea",
-              "requiredField": true
-            },
-            {
-              "fieldLabel": "When do you needed fixed?",
-              "fieldType": "date",
-              "requiredField": true
-            },
-            {
-              "fieldLabel": "Info you consider useful for us to know",
-              "fieldType": "textarea"
-            }
+        "rule": {
+          "interval": [
+            {}
           ]
-        },
+        }
+      },
+      "id": "229525cd-1fd2-4997-a0d2-1b0d6a918124",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        620,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "url": "verge.com/operations?integration=cron",
         "options": {}
       },
-      "id": "201012a9-4277-4f7b-8829-802777f2c9bd",
-      "name": "n8n Form Trigger",
-      "type": "n8n-nodes-base.formTrigger",
-      "typeVersion": 2.1,
+      "id": "8ab726a3-9920-4f18-94e9-065f949ecc18",
+      "name": "Fetch cron operations",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
       "position": [
-        640,
-        400
-      ],
-      "webhookId": "f20edac6-1079-4353-b868-6bb434dd15ea"
-    },
-    {
-      "parameters": {
-        "team": "3015277",
-        "space": "90170794567",
-        "folder": "90171278565",
-        "list": "901702548245",
-        "name": "={{ $json['Name of the task'] }}",
-        "additionalFields": {
-          "content": "={{ $json['What is the problem?'] }}\n\n\n### Other details: \n\n{{ $json['Info you consider useful for us to know'] }}",
-          "dueDate": "={{ $json['When do you needed fixed?'] }}",
-          "markdownContent": true,
-          "status": "starting next"
-        }
-      },
-      "id": "f2debefc-654f-4b1a-a896-8701b0275e0f",
-      "name": "ClickUp",
-      "type": "n8n-nodes-base.clickUp",
-      "typeVersion": 1,
-      "position": [
-        860,
-        400
-      ],
-      "credentials": {
-        "clickUpApi": {
-          "id": "lwFd2uhzsjT9hByN",
-          "name": "ClickUp account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "select": "user",
-        "user": {
-          "__rl": true,
-          "value": "U01U1MMKRDZ",
-          "mode": "id"
-        },
-        "messageType": "block",
-        "blocksUi": "={\n\t\"blocks\": [\n\t\t{\n\t\t\t\"type\": \"context\",\n\t\t\t\"elements\": [\n\t\t\t\t{\n\t\t\t\t\t\"type\": \"image\",\n\t\t\t\t\t\"image_url\": \"https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg\",\n\t\t\t\t\t\"alt_text\": \"cute cat\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"type\": \"mrkdwn\",\n\t\t\t\t\t\"text\": \"New Task has been added to the DevOps Board\"\n\t\t\t\t}\n\t\t\t]\n\t\t},\n\t\t{\n\t\t\t\"type\": \"section\",\n\t\t\t\"text\": {\n\t\t\t\t\"type\": \"mrkdwn\",\n\t\t\t\t\"text\": \"{{ $json.name }}\"\n\t\t\t},\n\t\t\t\"accessory\": {\n\t\t\t\t\"type\": \"button\",\n\t\t\t\t\"text\": {\n\t\t\t\t\t\"type\": \"plain_text\",\n\t\t\t\t\t\"text\": \"Go to task\",\n\t\t\t\t\t\"emoji\": true\n\t\t\t\t},\n\t\t\t\t\"value\": \"click_me_123\",\n\t\t\t\t\"url\": \"https://app.clickup.com/t/{{ $json.id }}\",\n\t\t\t\t\"action_id\": \"button-action\"\n\t\t\t}\n\t\t}\n\t]\n}",
-        "otherOptions": {
-          "includeLinkToWorkflow": false
-        }
-      },
-      "id": "e5e8acee-63c4-420e-8cb0-bb44e40b3212",
-      "name": "Slack",
-      "type": "n8n-nodes-base.slack",
-      "typeVersion": 2.2,
-      "position": [
-        1080,
-        400
-      ],
-      "credentials": {
-        "slackApi": {
-          "id": "kfxOr1rysZBrmnSb",
-          "name": "Slack account"
-        }
-      }
+        840,
+        120
+      ]
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Fetch cron operations": [
+      {
+        "json": {
+          "name": "First item",
+          "code": 1
+        }
+      },
+      {
+        "json": {
+          "name": "Second item",
+          "code": 2
+        }
+      }
+    ]
+  },
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
-  "triggerCount": 2,
-  "updatedAt": "2024-10-13T23:12:50.000Z",
-  "versionId": "653f7dcd-e3e9-4f7e-939e-e0ff6a654584"
+  "triggerCount": 0,
+  "updatedAt": "2024-11-05T14:38:04.000Z",
+  "versionId": "1ef1ab02-e42a-43c0-9c60-833591d07736"
 }
