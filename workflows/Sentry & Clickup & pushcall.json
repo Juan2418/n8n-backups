@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Edit Fields": {
       "main": [
@@ -131,7 +131,8 @@
           "id": "yxrXM30i9JxeXnGf",
           "name": "Telegram account"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -161,7 +162,8 @@
           "id": "lwFd2uhzsjT9hByN",
           "name": "ClickUp account"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -191,7 +193,8 @@
       "position": [
         1900,
         780
-      ]
+      ],
+      "disabled": true
     },
     {
       "parameters": {
@@ -239,7 +242,8 @@
         800,
         780
       ],
-      "alwaysOutputData": true
+      "alwaysOutputData": true,
+      "disabled": true
     },
     {
       "parameters": {
@@ -254,7 +258,8 @@
       "position": [
         1680,
         600
-      ]
+      ],
+      "disabled": true
     },
     {
       "parameters": {
@@ -285,7 +290,8 @@
       "position": [
         1860,
         1000
-      ]
+      ],
+      "disabled": true
     },
     {
       "parameters": {
@@ -395,6 +401,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2025-01-19T22:32:57.000Z",
-  "versionId": "eef246ba-def4-4512-bac3-d6bf49e65884"
+  "updatedAt": "2025-01-27T18:40:51.000Z",
+  "versionId": "cbd87297-aea4-4e93-86e8-57586c542dd5"
 }
